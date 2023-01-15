@@ -1,0 +1,32 @@
+﻿<Window x:Class="Chat_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chat_App" 
+        xmlns:viewmodel="clr-namespace:Chat_App.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="480" Width="801" Background="White" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResizeWithGrip" MinWidth="801" MinHeight="480">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="161*" />
+            <ColumnDefinition Width="497*"/>
+            <ColumnDefinition Width="143*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column ="1" Background="White">
+            <TextBox Name="TextBox_Chat" Text="{Binding Chat}" TextWrapping="Wrap" Background="White" IsReadOnlyCaretVisible="True" BorderBrush="#FF404040" IsReadOnly="True" Margin="0,86,0,35" SelectionBrush="#FF1D1D1D"/>
+            <TextBox Name="TextBox_Msg" Text="{Binding Msg}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="394" Height="30" Background="#FFDEDEDE" FontFamily="Times New Roman" FontSize="16"/>
+            <Button Name="Btn_Send" Grid.Column="1" Content="Send" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="83" Background="#FFCCCCCC" FontFamily="Segoe UI Black" FontSize="16" Command="{Binding SendCommand}"/>
+            <TextBox Name="TxtBox_NickName" Text="{Binding Nick}" HorizontalAlignment="Left" Margin="224,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Height="25" GotMouseCapture="TxtBox_NickName_GotMouseCapture" FontFamily="Times New Roman" FontSize="14" IsEnabled="{Binding isEnableConnectButton}"/>
+            <Button Name="Btn_Connect" Content="Connect" HorizontalAlignment="Right" Margin="0,55,0,0" VerticalAlignment="Top" Height="27" Width="133" Command="{Binding ConnectButton}" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" IsEnabled="{Binding isEnableConnectButton}"/>
+        </Grid>
+        <StackPanel Background="#FFAEC3D6">
+            <Button Grid.Column="0" Content="Button" Height="45" VerticalAlignment="Top"/>
+            <Button Content="Button" Height="45"/>
+        </StackPanel>
+    </Grid>
+</Window>
