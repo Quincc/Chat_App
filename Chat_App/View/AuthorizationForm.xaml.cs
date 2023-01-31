@@ -30,5 +30,11 @@ namespace Chat_App
             mainWindow.Show();
             this.Close();
         }
+
+        private void TextBox_GotMouseCapture(object sender, MouseEventArgs e)
+        {
+            if (TxtBox_Username.Text == "Enter Your Username:")
+                TxtBox_Username.Text = "";
+        }
     }
 }
