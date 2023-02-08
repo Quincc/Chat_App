@@ -26,19 +26,13 @@ namespace Chat_App
         }
         private void TxtBox_NickName_GotMouseCapture(object sender, MouseEventArgs e)
         {
-            if(TxtBox_NickName.Text == "Enter Your Username:")
-                TxtBox_NickName.Text = "";
+            //if(TxtBox_NickName.Text == "Enter Your Username:")
+              //  TxtBox_NickName.Text = "";
         }
 
         private void Btn_Connect_Click(object sender, RoutedEventArgs e)
         {
             
         }
-
-        //private void TxtBox_NickName_LostMouseCapture(object sender, MouseEventArgs e)
-        //{
-        //    if(String.IsNullOrWhiteSpace(TxtBox_NickName.Text))
-        //        TxtBox_NickName.Text = "Enter your username";
-        //}
     }
 }

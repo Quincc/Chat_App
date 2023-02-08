@@ -12,7 +12,6 @@
     </Window.DataContext>
     <Grid>
         <TextBox x:Name="TxtBox_Username" HorizontalAlignment="Center" Margin="0,124,0,0" TextWrapping="Wrap" Text= "{Binding Nick}" VerticalAlignment="Top" Width="239" Height="51" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotMouseCapture="TextBox_GotMouseCapture"/>
-        <Button Content="Connect" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Height="44" Width="157" FontFamily="Broadway" FontSize="18" Command="{Binding ConnectButton}" Click="Button_Click"/>
-
+        <Button Content="Connect" HorizontalAlignment="Center" Margin="0,260,0,0" VerticalAlignment="Top" Height="44" Width="157" FontFamily="Broadway" FontSize="18" Command = "{Binding ConnectButton}" Click="Button_Click"/>
     </Grid>
 </Window>

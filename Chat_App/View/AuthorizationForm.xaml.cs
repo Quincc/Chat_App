@@ -28,7 +28,7 @@ namespace Chat_App
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();
+            //this.Close();
         }
 
         private void TextBox_GotMouseCapture(object sender, MouseEventArgs e)

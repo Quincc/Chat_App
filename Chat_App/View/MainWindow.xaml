@@ -13,20 +13,20 @@
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="156*" />
-            <ColumnDefinition Width="502*"/>
-            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="52*" />
+            <ColumnDefinition Width="175*"/>
+            <ColumnDefinition Width="40*"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column ="1" Background="White">
             <TextBox Name="TextBox_Msg" Text="{Binding Msg}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="394" Height="30" Background="#FFDEDEDE" FontFamily="Times New Roman" FontSize="16"/>
             <Button Name="Btn_Send" Grid.Column="1" Content="Send" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="83" Background="#FFCCCCCC" FontFamily="Segoe UI Black" FontSize="16" Command="{Binding SendCommand}"/>
-            <TextBox Name="TxtBox_NickName" Text="{Binding Nick}" HorizontalAlignment="Left" Margin="224,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Height="25" GotMouseCapture="TxtBox_NickName_GotMouseCapture" FontFamily="Times New Roman" FontSize="14" IsEnabled="{Binding isEnableConnectButton}"/>
-            <Button Name="Btn_Connect" Content="Connect" HorizontalAlignment="Right" Margin="0,55,0,0" VerticalAlignment="Top" Height="27" Width="133" Command="{Binding ConnectButton}" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" IsEnabled="{Binding isEnableConnectButton}"/>
-            <TextBox x:Name="TextBox_Chat" Text="{Binding Chat}" TextWrapping="Wrap" Background="White" IsReadOnlyCaretVisible="True" BorderBrush="#FF404040" IsReadOnly="True" Margin="0,86,0,35" SelectionBrush="#FF1D1D1D"/>
+            <TextBox Name="TxtBox_NickName" Text="{Binding Nick}" HorizontalAlignment="Left" Margin="229,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135" Height="25" GotMouseCapture="TxtBox_NickName_GotMouseCapture" FontFamily="Times New Roman" FontSize="14" IsEnabled="{Binding isEnableConnectButton}"/>
+            <Button Name="Btn_Connect" Content="Connect" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top" Height="27" Width="133" Command="{Binding ConnectButton}" FontFamily="Times New Roman" FontSize="16" FontWeight="Bold" IsEnabled="{Binding isEnableConnectButton}"/>
+            <TextBox x:Name="TextBox_Chat" Text="{Binding Chat}" TextWrapping="Wrap" Background="White" IsReadOnlyCaretVisible="True" BorderBrush="#FF404040" IsReadOnly="True" Margin="0,57,0,35" SelectionBrush="#FF1D1D1D"/>
         </Grid>
         <StackPanel Background="#FFAEC3D6">
-            <Button Grid.Column="0" Content="Button" Height="45" VerticalAlignment="Top"/>
-            <Button Content="Button" Height="45"/>
+            <Button Grid.Column="0" Content="User1" Height="45" VerticalAlignment="Top" Background="#FFE0E0E0" FontFamily="Times New Roman" FontSize="18"/>
+            <Button Content="User2" Height="45" FontFamily="Times New Roman" FontSize="18"/>
         </StackPanel>
     </Grid>
 </Window>
