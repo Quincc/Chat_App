@@ -62,6 +62,9 @@
     <Reference Include="MvvmHelpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Refractored.MvvmHelpers.1.6.2\lib\net461\MvvmHelpers.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.5.1.0\lib\net46\NLog.dll</HintPath>
     </Reference>
@@ -106,6 +109,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Message.cs" />
+    <Compile Include="Model\RepositoryModel.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="View\AuthorizationForm.xaml">
       <SubType>Designer</SubType>
@@ -158,8 +164,10 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Properties\Resources\1920x1080-pink-solid-color-background.jpg" />
-    <Resource Include="Properties\Resources\2_3840x1080.jpg" />
+    <Resource Include="1920x1080-pink-solid-color-background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

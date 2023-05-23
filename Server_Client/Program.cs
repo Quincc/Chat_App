@@ -2,7 +2,11 @@
 using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Extensions.Logging;
+using Chat_App.Model;
 using System.Net.Sockets;
+using System.Text;
+using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 TcpListener listener = new TcpListener(5050);
 List<Client_User> clients = new List<Client_User>();
@@ -47,8 +51,11 @@ while (true)
             try
             {
                 sr = new StreamReader(client.GetStream());
-                var line = sr.ReadLine();
-                SendMsg(line);
+                byte[] data = new byte[512];
+                int bytes = client.Client.Receive(data);
+                string time = Encoding.UTF8.GetString(data, 0, bytes);
+                var obj = JsonConvert.DeserializeObject<Message>(time);
+                SendMsg(obj.Msg);
             }
             catch (Exception e)
             {

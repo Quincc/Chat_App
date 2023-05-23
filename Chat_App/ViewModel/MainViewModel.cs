@@ -1,4 +1,5 @@
-﻿using MvvmHelpers.Commands;
+﻿using Chat_App.Model;
+using MvvmHelpers.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Newtonsoft.Json;
 using System.Windows.Interop;
 
 namespace Chat_App.ViewModel
@@ -26,6 +28,7 @@ namespace Chat_App.ViewModel
             get { return _Nick; }
             set { _Nick = value; }
         }
+        private User _ActiveUser;
         private int _Port;
         public int Port
         {
@@ -65,7 +68,7 @@ namespace Chat_App.ViewModel
         StreamWriter sw;
         public MainViewModel()
         {
-            Ip = "192.168.0.164";
+            Ip = "192.168.1.67";
             Port = 5050;
             Nick = "Enter Your Username:";
             Task.Factory.StartNew(() =>
@@ -89,7 +92,7 @@ namespace Chat_App.ViewModel
                     }
                     catch (Exception e)
                     {
-
+  
                         throw;
                     }
                 }
@@ -131,7 +134,14 @@ namespace Chat_App.ViewModel
                     {
                         try
                         {
-                            sw.WriteLine($"{DateTime.Now.ToShortTimeString()} {Nick}: {Msg}");
+                            Message msg = new Message($"{Msg}", Nick, "Recipient");
+                            byte[] date = Encoding.UTF8.GetBytes(DateTime.Now.ToLongTimeString());
+                            //client.GetStream().Write(date, 0, date.Length); 
+                            string res = JsonConvert.SerializeObject(msg);
+                            File.WriteAllText("msg.txt", res);
+                            client.Client.SendFile("msg.txt");
+                            //sw.WriteLine(date);
+                            //sw.WriteLine($"{DateTime.Now.ToShortTimeString()} {Nick}: {Msg}");
                             Msg = "";
                         }
                         catch (Exception e)
@@ -144,5 +154,3 @@ namespace Chat_App.ViewModel
         }
     }
 }
-//(x) => client.Connected == false || client == null
-//(x) => client.Connected == true && !string.IsNullOrWhiteSpace(Msg)
